@@ -184,7 +184,7 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <img src="image/logo_pesantren.jpg" alt="Logo Pesantren Al-Hikmah">
+                <!-- <img src="image/logo_iqbal.jpg" alt="Logo Muhammad Iqbal"> -->
                 <h1>Toko Online Muhammad Iqbal</h1>
             </div>
             <nav class="nav">
