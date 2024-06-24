@@ -27,7 +27,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
 				$img_upload_path = 'uploads/' . $new_img_name;
 				move_uploaded_file($tmp_name, $img_upload_path);
 
-				// Insert into Database
+		
 				$sql = "INSERT INTO product(image) 
 				        VALUES('$new_img_name')";
 				mysqli_query($conn, $sql);

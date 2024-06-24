@@ -4,20 +4,18 @@
 <head>
     <?php
 
-    // Include the database connection file
     require_once ("admin/dbConnection.php");
 
-    // Fetch data in descending order (latest entry first)
     $result = mysqli_query($mysqli, "SELECT * FROM product ORDER BY id DESC");
     ?>
 
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesantren Website</title>
+    <title>Toko Online Muhammad Iqbal</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-    /* Gaya tambahan untuk nuansa pesantren */
+
     body {
         background-color: #f4f4f4;
         font-family: 'Times New Roman', Times, serif;
@@ -27,18 +25,14 @@
 
     header {
         background-color: rgba(141, 178, 85, 0.8);
-        /* Warna header dengan efek transparan */
         padding: 15px 0;
         position: fixed;
         width: 100%;
         top: 0;
         z-index: 1000;
-        /* Pastikan header ada di atas konten */
         display: flex;
         align-items: center;
-        /* Mengatur logo dan navigasi berada di tengah vertikal */
         justify-content: space-between;
-        /* Menyebarkan elemen di header */
     }
 
     .container {
@@ -54,12 +48,9 @@
 
     header .logo img {
         border-radius: 50%;
-        /* Membuat gambar logo berbentuk bulat */
         width: 70px;
-        /* Mengatur ukuran gambar logo */
         height: auto;
         margin-right: 20px;
-        /* Memberikan ruang antara logo dan teks */
     }
 
     header .logo h1 {
@@ -85,33 +76,24 @@
 
     header .nav ul li a:hover {
         background-color: rgba(255, 255, 255, 0.3);
-        /* Efek hover untuk link */
         border-radius: 5px;
     }
-
-    /* Gaya tambahan untuk grid produk */
     .product-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
         padding-top: 100px;
-        /* Padding tambahan untuk memberi ruang di bawah header */
     }
 
     .info-card {
         background-color: #ffffff;
-        /* Warna latar belakang */
         border-radius: 10px;
-        /* Melengkungkan sudut kartu */
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        /* Memberikan bayangan */
         padding: 20px;
-        /* Memberikan ruang di dalam kartu */
     }
 
     .product-card {
         margin-bottom: 20px;
-        /* Memberikan jarak antar kartu produk */
     }
 
     .product-card img {
@@ -154,7 +136,6 @@
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
         padding-top: 100px;
-        /* Padding tambahan untuk memberi ruang di bawah header */
     }
 
     .product-card {
@@ -163,14 +144,11 @@
         padding: 10px;
         text-align: center;
         width: 200px;
-        /* Lebar tetap untuk setiap kartu */
         margin: 0 auto;
-        /* Tengahkan kartu di dalam grid */
     }
 
     .product-card img {
         max-width: 100%;
-        /* Gambar akan sesuaikan dengan lebar container */
         height: auto;
     }
 
@@ -179,7 +157,6 @@
         margin-top: 10px;
         padding: 5px 10px;
         background-color: #4CAF50;
-        /* Ubah warna tombol menjadi hijau */
         color: #fff;
         text-decoration: none;
         border-radius: 5px;
@@ -187,20 +164,15 @@
 
     .product-card .order-whatsapp:hover {
         background-color: #45a049;
-        /* Warna hover sedikit lebih gelap */
     }
 
     section#contact {
         background-color: #333;
         color: #fff;
-        /* Warna teks putih */
         padding: 1px 0;
-        /* Ruang di sekitar konten */
         border-radius: 1px;
-        /* Radius sudut */
     }
 
-    /* Custom CSS untuk card */
     .info-card {
         background-color: #f8f9fa;
         border: none;
@@ -208,7 +180,6 @@
         padding: 20px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         min-height: fit-content;
-        /* Tambahkan properti min-height */
     }
     </style>
 
@@ -218,16 +189,16 @@
     <header class="header">
         <div class="container">
             <div class="logo">
-                <img src="image/logo_pesantren.jpg" alt="Logo Pesantren Al-Hikmah">
-                <h1>Produk Kemandirian Pontren Daarul Hikmah</h1>
+                <!-- <img src="image/logo_pesantren.jpg" alt="Logo Pesantren Al-Hikmah"> -->
+                <h1>Toko Online Muhammad Iqbal</h1>
             </div>
             <nav class="nav">
                 <ul>
-                    <li><a href="about.php">Tentang Kami</a></li>
+                    <!-- <li><a href="about.php">Tentang Kami</a></li>
                     <li><a href="ppdb.php">Informasi PPDB</a></li>
-                    <!-- <li><a href="activity.php">Kegiatan Santri</a></li>
-                    <li><a href="galery.php">Galeri</a></li> -->
-                    <li><a href="contact.php">Kontak</a></li>
+                    <li><a href="activity.php">Kegiatan Santri</a></li>
+                    <li><a href="galery.php">Galeri</a></li>
+                    <li><a href="contact.php">Kontak</a></li> -->
                     <li><a href="index.php">Login Sebagai Admin</a></li>
                 </ul>
             </nav>
@@ -250,7 +221,6 @@
                     <div class="container">
                         <h2>List Produk</h2>
                         <div class="product-grid">
-                            <!-- Tampilkan produk dari database -->
                             <?php
                             $sql = "SELECT * FROM product WHERE isActive = 1 ORDER BY id DESC";
                             $result = mysqli_query($conn, $sql);
@@ -272,7 +242,7 @@
                                     echo "<p>Stok: " . $row['stock_product'] . "</p>"; // Display stock
                                     echo "<p>Satuan: " . $row['satuan_product'] . "</p>"; // Display unit
                                     echo "</div>";
-                                    echo "<a href='https://api.whatsapp.com/send?phone=6282311265619&text=Order%20" . $row['nama_product'] . "' target='_blank' class='order-whatsapp'>Order to WhatsApp</a>";
+                                    echo "<a href='https://api.whatsapp.com/send?phone=6289665107636&text=Order%20" . $row['nama_product'] . "' target='_blank' class='order-whatsapp'>Order to WhatsApp</a>";
                                     echo "</div>";
                                 }
                             } else {
@@ -295,17 +265,16 @@
     <section id="contact">
         <div class="container">
             <h2>Kontak Kami</h2>
-            <p>Jika Anda memiliki pertanyaan atau ingin mendaftar, silakan hubungi kami melalui:</p>
-            <p>Email: Info@Pesantrendaarulhikmah.Com</p>
-            <p>Telepon: (021) 22748530</p>
-            <p>Alamat: Jl. Kamelia, Kav. B. 17&18, Perum Bukit Nusa Indah, Serua, Kec. Ciputat, Kota Tangerang Selatan,
-                Banten 15414</p>
+            <p>Jika Anda memiliki pertanyaan, silakan hubungi saya melalui:</p>
+            <p>Email: iqbalvzr@gmail.com</p>
+            <p>Telepon: 089665107636</p>
+            <p>Alamat: Jl. Kyai Dayung Pamulang II</p>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Pesantren Tahfizh Al-Qur'an Daarul Hikmah. All rights reserved.</p>
+            <p>&copy; 2024 Toko Online Muhammad Iqbal. All rights reserved.</p>
         </div>
     </footer>
 </body>

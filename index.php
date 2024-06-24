@@ -7,7 +7,6 @@
   <title>Pesantren Website</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Gaya tambahan untuk nuansa pesantren */
     body {
       background-color: #f4f4f4;
       font-family: 'Times New Roman', Times, serif;
@@ -16,12 +15,10 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      /* Membuat konten memenuhi tinggi viewport */
     }
 
     header {
       background-color: rgba(141, 178, 85, 0.8);
-      /* Warna header dengan efek transparan */
       padding: 15px 0;
       width: 100%;
     }
@@ -38,12 +35,9 @@
 
     header .logo img {
       border-radius: 50%;
-      /* Membuat gambar logo berbentuk bulat */
       width: 70px;
-      /* Mengatur ukuran gambar logo */
       height: auto;
       margin-right: -100px;
-      /* Memberikan ruang antara logo dan teks */
     }
 
     header .logo h1 {
@@ -71,7 +65,6 @@
 
     header .nav ul li a:hover {
       background-color: rgba(255, 255, 255, 0.3);
-      /* Efek hover untuk link */
       border-radius: 5px;
     }
 
@@ -82,11 +75,8 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       max-width: 400px;
       margin: auto;
-      /* Memposisikan form login di tengah */
       margin-top: 20px;
-      /* Memberikan ruang antara header dan form login */
       width: 80%;
-      /* Perbesar form login */
     }
 
     .login-form input[type="text"],
@@ -116,13 +106,10 @@
 
     footer {
       background-color: rgba(141, 178, 85, 0.8);
-      /* Warna footer dengan efek transparan */
       color: #fff;
-      /* Warna teks putih */
       padding: 15px 0;
       width: 100%;
       margin-top: auto;
-      /* Footer tetap di bagian bawah halaman */
     }
 
     footer p {
@@ -130,7 +117,6 @@
       text-align: center;
     }
 
-    /* Responsif */
     @media screen and (max-width: 768px) {
       header .logo h1 {
         padding-left: 10px;
@@ -160,7 +146,6 @@
       max-width: 400px;
     }
 
-    /* CSS untuk styling teks pesan error */
     .error-message {
       margin-bottom: 0;
     }
@@ -183,13 +168,13 @@
   <header class="header">
     <div class="container">
       <div class="logo">
-        <img src="image/logo_pesantren.jpg" alt="Logo">
+        <!-- <img src="image/logo_pesantren.jpg" alt="Logo"> -->
       </div>
-      <h1 style="color: white;">Pesantren Tahfizh Al-Qur'an Daarul Hikmah</h1>
+      <h1 style="color: white;">Toko Online Muhammad Iqbal</h1>
       <nav class="nav">
         <ul>
           <li><a href="dashboard_customer.php">Home</a></li>
-          <li><a href="contact.php">Kontak</a></li>
+          <!-- <li><a href="contact.php">Kontak</a></li> -->
         </ul>
       </nav>
     </div>
@@ -209,18 +194,15 @@
    
     <?php
     if (isset($_GET['pesan'])) {
-      // Membuat variabel untuk menyimpan pesan kesalahan
       $error_message = "";
 
-      // Jika pesan adalah "gagal"
       if ($_GET['pesan'] == "gagal") {
         $error_message = "Maaf, Username dan password salah!";
 
-        // Jika pesan adalah "logout"
+       //Message untuk Log out
       } else if ($_GET['pesan'] == "logout") {
         $error_message = "Terima kasih, Anda telah logout!";
 
-        // Jika pesan adalah "login_dulu"
       } else if ($_GET['pesan'] == "login_dulu") {
         $error_message = "Silahkan login untuk masuk ke dashboard!";
       }
@@ -239,7 +221,7 @@
 
 
   <footer style="text-align: center;">
-    <p>&copy; 2024 Pesantren Tahfizh Al-Qur'an Daarul Hikmah. All rights reserved.</p>
+    <p>&copy; 2024 Toko Online Muhammad Iqbal. All rights reserved.</p>
   </footer>
 
 </body>

@@ -1,6 +1,6 @@
 <?php
 $databaseHost = 'localhost';
-$databaseName = 'kerjapraktekpesantren';
+$databaseName = 'finalwebproject';
 $databaseUsername = 'root';
 $databasePassword = '';
 

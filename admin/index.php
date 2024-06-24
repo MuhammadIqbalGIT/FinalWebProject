@@ -8,24 +8,18 @@
     <link rel="stylesheet" href="styles.css">
 
     <?php
-    // Mengaktifkan session
     session_start();
 
-    // Memeriksa apakah session "status" berisi string "login"
     if ($_SESSION['status'] != "login") {
-        // Jika tidak, alihkan halaman kembali ke halaman login dengan memberi parameter pesan yang berisi string "login_dulu"
         header("location:../index.php?pesan=login_dulu");
     }
 
-    // Include the database connection file
     require_once ("dbConnection.php");
 
-    // Fetch data in descending order (latest entry first)
     $result = mysqli_query($mysqli, "SELECT * FROM product ORDER BY id DESC");
     ?>
 
     <style>
-        /* Gaya tambahan untuk nuansa pesantren */
         body {
             background-color: #f4f4f4;
             font-family: 'Times New Roman', Times, serif;
@@ -35,18 +29,14 @@
 
         header {
             background-color: rgba(141, 178, 85, 0.8);
-            /* Warna header dengan efek transparan */
             padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            /* Pastikan header ada di atas konten */
             display: flex;
             align-items: center;
-            /* Mengatur logo dan navigasi berada di tengah vertikal */
             justify-content: space-between;
-            /* Menyebarkan elemen di header */
         }
 
 
@@ -63,12 +53,9 @@
 
         header .logo img {
             border-radius: 50%;
-            /* Membuat gambar logo berbentuk bulat */
             width: 70px;
-            /* Mengatur ukuran gambar logo */
             height: auto;
             margin-right: 20px;
-            /* Memberikan ruang antara logo dan teks */
         }
 
         header .logo h1 {
@@ -94,14 +81,11 @@
 
         header .nav ul li a:hover {
             background-color: rgba(255, 255, 255, 0.3);
-            /* Efek hover untuk link */
             border-radius: 5px;
         }
 
-        /* Gaya tambahan untuk grid produk */
         #products {
             margin-top: 120px;
-            /* Atur jarak antara header dan konten produk */
         }
 
         .product-grid {
@@ -112,20 +96,13 @@
 
         .product-card {
             width: 200px;
-            /* Adjust the width as needed */
             margin: 10px;
-            /* Add margin for spacing between cards */
             display: inline-block;
-            /* Ensure cards are displayed in a row */
             vertical-align: top;
-            /* Align cards to the top of the container */
             border: 1px solid #ccc;
-            /* Add border for visual separation */
             padding: 10px;
-            /* Add padding inside each card */
             box-sizing: border-box;
-            /* Include padding in the width calculation */
-        }
+          }
 
         .product-card img {
             max-width: 100%;
@@ -167,26 +144,20 @@
             top: 5px;
             right: 5px;
             color: #ff0000;
-            /* Warna merah untuk ikon hapus */
             cursor: pointer;
         }
 
         section#contact {
             background-color: #333;
             color: #fff;
-            /* Warna teks putih */
             padding: 1px 0;
-            /* Ruang di sekitar konten */
             border-radius: 1px;
-            /* Radius sudut */
-        }
+          }
 
         .add-product {
             position: fixed;
             top: 150px;
-            /* Menentukan jarak dari atas */
             right: 20px;
-            /* Menentukan jarak dari kanan */
             background-color: #007bff;
             color: #fff;
             padding: 10px 20px;
@@ -197,9 +168,7 @@
         .logout {
             position: fixed;
             top: 200px;
-            /* Menentukan jarak dari atas */
             right: 20px;
-            /* Menentukan jarak dari kanan */
             background-color: #dc3545;
             color: #fff;
             padding: 10px 20px;
@@ -233,10 +202,8 @@
             <a href="add.php" class="add-product">Tambah Produk Baru</a>
             <a href="logout.php" class="logout">Keluar Aplikasi</a>
 
-            <!-- Hapus link tambah produk -->
-
+          
             <div class="product-grid">
-                <!-- Tampilkan produk dari database -->
                 <?php
                 $sql = "SELECT * FROM product ORDER BY id DESC";
                 $result = mysqli_query($conn, $sql);
@@ -245,7 +212,6 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<div class='product-card'>";
                         echo "<div class='alb'>";
-                        // Check if image field is empty
                         if (!empty($row['image'])) {
                             echo "<img src='uploads/" . $row['image'] . "' alt='" . $row['nama_product'] . "' />";
                         } else {
@@ -253,13 +219,9 @@
                         }
                         echo "</div>";
                         echo "<h3>" . $row['nama_product'] . "</h3>";
-                        echo "<p>Harga: " . $row['harga_product'] . "</p>"; // Display price
-                        // Add checkbox for status if isActive exists
+                        echo "<p>Harga: " . $row['harga_product'] . "</p>";
                         if (isset($row['isActive'])) {
-                            // echo "<label class='switch'>";
-                            // echo "<input type='checkbox' class='status-toggle' data-id='".$row['id']."' ".($row['isActive'] == 1 ? 'checked' : '').">";
-                            // echo "<span class='slider round'></span>";
-                            // Display appropriate label based on isActive value
+                
                             if ($row['isActive'] == 1) {
                                 echo "<p><span style='color:green;'>Produk Aktif</span></p>";
                             } else {
@@ -280,8 +242,6 @@
             </div>
         </div>
     </section>
-
-
 </body>
 
 </html>

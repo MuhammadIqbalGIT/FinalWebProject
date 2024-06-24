@@ -1,10 +1,8 @@
 <?php
-// Mengaktifkan session
+
 session_start();
 
-// Memeriksa apakah session "status" berisi string "login"
 if ($_SESSION['status'] != "login") {
-    // Jika tidak, alihkan halaman kembali ke halaman login dengan memberi parameter pesan yang berisi string "login_dulu"
     header("location:../index.php?pesan=login_dulu");
 }
 ?>
@@ -59,7 +57,6 @@ if ($_SESSION['status'] != "login") {
 
         .input-field {
             width: calc(100% - 16px);
-            /* 100% width minus padding */
             padding: 8px;
             margin-top: 5px;
             margin-bottom: 10px;
@@ -71,7 +68,6 @@ if ($_SESSION['status'] != "login") {
         .input-field:focus {
             outline: none;
             border-color: #007bff;
-            /* change border color on focus */
         }
 
         .error {

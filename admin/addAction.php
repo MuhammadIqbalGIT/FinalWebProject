@@ -4,38 +4,27 @@
 <head>
     <title>Add Data</title>
     <style>
-        /* Styles for modal dialog */
         .modal {
             display: none;
-            /* Hidden by default */
             position: fixed;
-            /* Stay in place */
             z-index: 1;
-            /* Sit on top */
             left: 0;
             top: 0;
             width: 100%;
-            /* Full width */
             height: 100%;
-            /* Full height */
             overflow: auto;
-            /* Enable scroll if needed */
             background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
         }
 
         .modal-content {
             background-color: #fefefe;
             margin: 15% auto;
-            /* 15% from the top and centered */
             padding: 20px;
             border: 1px solid #888;
             width: 80%;
-            /* Could be more or less, depending on screen size */
             border-radius: 10px;
         }
 
-        /* Close button style */
         .close {
             color: #aaa;
             float: right;
@@ -61,19 +50,15 @@
     </div>
 
     <script>
-        // Get the modal
         var modal = document.getElementById("myModal");
 
-        // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks on <span> (x), close the modal
         span.onclick = function () {
             modal.style.display = "none";
-            window.location.href = "add.php"; // Redirect to add.php when closing the modal
+            window.location.href = "add.php";
         }
 
-        // Display modal with message
         function displayModal(message) {
             var modalMessage = document.getElementById("modal-message");
             modalMessage.innerHTML = message;
@@ -87,7 +72,7 @@
     $error = $success = "";
 
     if (isset($_POST['submit'])) {
-        // Validate required fields
+       
         if (empty($_POST['nama_product']) || empty($_POST['satuan_product']) || empty($_POST['stock_product']) || empty($_POST['harga_product'])) {
             $error = "Harap Isi Semua Field";
             echo "<script>alert('$error');</script>";
@@ -118,7 +103,6 @@
                 exit();
             }
 
-            // Check if file size is less than 5MB
             if ($file_size > 5242880) {
                 $error = "Ukuran file harus kurang dari 5 MB.";
                 echo "<script>alert('$error');</script>";
@@ -126,24 +110,18 @@
                 exit();
             }
 
-            // Move the uploaded file to the uploads directory
             move_uploaded_file($file_tmp, "uploads/" . $file_name);
         } else {
-            // If no image file is selected, use a default image
             $file_name = "defaultproduct.png";
         }
 
-        // Insert data into database
         $result = mysqli_query($mysqli, "INSERT INTO product (nama_product, satuan_product, image, stock_product, harga_product, isActive) VALUES ('$name', '$satuan', '$file_name', '$stock', '$harga',$isActive)");
 
-        // Check if the insertion was successful
         if ($result) {
-            // Display success message
             $success = "Data Product Berhasil ditambahkan";
             echo "<script>displayModal('$success');</script>";
             exit();
         } else {
-            // Display error message
             $error = "Error: Data Product gagal ditambahkan";
             echo "<script>displayModal('$error');</script>";
             exit();

@@ -1,35 +1,28 @@
 <?php
-// Include the database connection file
+
 require_once ("dbConnection.php");
 
 
 
-// Mengaktifkan session
 session_start();
 
-// Memeriksa apakah session "status" berisi string "login"
 if ($_SESSION['status'] != "login") {
-    // Jika tidak, alihkan halaman kembali ke halaman login dengan memberi parameter pesan yang berisi string "login_dulu"
     header("location:../index.php?pesan=login_dulu");
 }
 
 
-// Inisialisasi variabel dengan nilai default
+
 $name = $satuan = $image = $stock = $harga = $id = $isActive = "";
 
-// Cek apakah ada parameter id yang diterima melalui URL
+
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    // Ambil data produk dengan id yang sesuai dari database
     $result = mysqli_query($mysqli, "SELECT * FROM product WHERE id = $id");
 
-    // Periksa apakah data berhasil diambil
     if ($result && mysqli_num_rows($result) > 0) {
-        // Ambil data produk sebagai array asosiatif
         $resultData = mysqli_fetch_assoc($result);
 
-        // Isi variabel dengan data dari database
         $name = $resultData['nama_product'];
         $satuan = $resultData['satuan_product'];
         $image = $resultData['image'];
@@ -37,12 +30,10 @@ if (isset($_GET['id'])) {
         $harga = $resultData['harga_product'];
         $isActive = $resultData['isActive'];
     } else {
-        // Jika data tidak ditemukan, tampilkan pesan error
         echo "Data produk tidak ditemukan.";
         exit;
     }
 } else {
-    // Jika tidak ada parameter id, tampilkan pesan error
     echo "Parameter id tidak ditemukan.";
     exit;
 }
@@ -130,7 +121,6 @@ if (isset($_GET['id'])) {
 
         .input-field {
             width: calc(100% - 16px);
-            /* 100% width minus padding */
             padding: 8px;
             margin-top: 5px;
             margin-bottom: 10px;
@@ -142,10 +132,8 @@ if (isset($_GET['id'])) {
         .input-field:focus {
             outline: none;
             border-color: #007bff;
-            /* change border color on focus */
-        }
+          }
 
-        /* CSS untuk toggle */
         .toggle-container {
             display: flex;
             align-items: center;
@@ -159,29 +147,22 @@ if (isset($_GET['id'])) {
             cursor: pointer;
             position: relative;
             margin-right: 10px;
-            /* Sesuaikan margin jika diperlukan */
         }
 
         .toggle:before {
             content: 'Aktifkan Produk';
-            /* Judul untuk toggle */
             position: absolute;
             top: 50%;
             left: -110%;
-            /* Pindahkan judul ke luar toggle */
             transform: translateY(-50%);
             color: #000;
-            /* Warna untuk judul */
-        }
+            }
 
         .toggle.active:before {
             content: 'Nonaktifkan Produk';
-            /* Judul untuk toggle ketika aktif */
             left: 110%;
-            /* Pindahkan judul ke luar toggle */
-        }
+           }
 
-        /* Warna hijau untuk toggle aktif */
         .toggle.active {
             background-color: #4CAF50;
         }
@@ -238,11 +219,9 @@ if (isset($_GET['id'])) {
                     <td>
                         <input type="number" name="stock_product" value="<?php echo $stock; ?>" min="0"
                             class="input-field">
-                        <!-- Toggle untuk isActive -->
                         <div class="toggle-container">
                             <div class="toggle <?php echo $isActive == 1 ? 'active' : ''; ?>"
                                 onclick="toggleActive(this)"></div>
-                            <!-- Input field untuk menyimpan nilai isActive -->
                             <input type="hidden" name="isActive" value="<?php echo $isActive; ?>">
                         </div>
                     </td>
@@ -267,7 +246,6 @@ if (isset($_GET['id'])) {
     </div>
 
     <script>
-        // Fungsi untuk mengubah status toggle dan nilai input "isActive"
         function toggleActive(toggle) {
             toggle.classList.toggle('active');
             var isActiveInput = toggle.parentElement.querySelector('input[name="isActive"]');
