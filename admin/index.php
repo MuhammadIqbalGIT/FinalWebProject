@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Halaman admin - Pesantren Tahfizh Al-Qur'an Daarul Hikmah</title>
+    <title>Halaman admin - Toko Online Muhammad Iqbal</title>
     <link rel="stylesheet" href="styles.css">
 
     <?php
@@ -185,7 +185,7 @@
         <div class="container">
             <div class="logo">
                 <img src="image/logo_pesantren.jpg" alt="Logo Pesantren Al-Hikmah">
-                <h1>Pesantren Tahfizh Al-Qur'an Daarul Hikmah</h1>
+                <h1>Toko Online Muhammad Iqbal</h1>
             </div>
             <nav class="nav">
                 <ul>
