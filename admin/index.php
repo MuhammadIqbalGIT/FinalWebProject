@@ -16,7 +16,7 @@
 
     require_once ("dbConnection.php");
 
-    $result = mysqli_query($mysqli, "SELECT * FROM product ORDER BY id DESC");
+    $result = mysqli_query($conn, "SELECT * FROM product ORDER BY id DESC");
     ?>
 
     <style>

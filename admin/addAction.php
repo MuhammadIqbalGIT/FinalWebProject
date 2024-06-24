@@ -80,10 +80,10 @@
             exit();
         }
 
-        $name = mysqli_real_escape_string($mysqli, $_POST['nama_product']);
-        $satuan = mysqli_real_escape_string($mysqli, $_POST['satuan_product']);
-        $stock = mysqli_real_escape_string($mysqli, $_POST['stock_product']);
-        $harga = mysqli_real_escape_string($mysqli, $_POST['harga_product']);
+        $name = mysqli_real_escape_string($conn, $_POST['nama_product']);
+        $satuan = mysqli_real_escape_string($conn, $_POST['satuan_product']);
+        $stock = mysqli_real_escape_string($conn, $_POST['stock_product']);
+        $harga = mysqli_real_escape_string($conn, $_POST['harga_product']);
         $isActive = 1;
 
         if (isset($_FILES['my_image'])) {
@@ -115,7 +115,7 @@
             $file_name = "defaultproduct.png";
         }
 
-        $result = mysqli_query($mysqli, "INSERT INTO product (nama_product, satuan_product, image, stock_product, harga_product, isActive) VALUES ('$name', '$satuan', '$file_name', '$stock', '$harga',$isActive)");
+        $result = mysqli_query($conn, "INSERT INTO product (nama_product, satuan_product, image, stock_product, harga_product, isActive) VALUES ('$name', '$satuan', '$file_name', '$stock', '$harga',$isActive)");
 
         if ($result) {
             $success = "Data Product Berhasil ditambahkan";

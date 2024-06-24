@@ -1,4 +1,4 @@
-/* Reset default browser styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -121,7 +121,6 @@ footer p {
   font-size: 0.8rem;
 }
 
-/* Gaya untuk halaman kegiatan */
 .activity {
   display: flex;
   flex-wrap: wrap;

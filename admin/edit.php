@@ -18,7 +18,7 @@ $name = $satuan = $image = $stock = $harga = $id = $isActive = "";
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
-    $result = mysqli_query($mysqli, "SELECT * FROM product WHERE id = $id");
+    $result = mysqli_query($conn, "SELECT * FROM product WHERE id = $id");
 
     if ($result && mysqli_num_rows($result) > 0) {
         $resultData = mysqli_fetch_assoc($result);

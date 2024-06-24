@@ -55,7 +55,7 @@ if (isset($_POST['update'])) {
     }
 
 
-    $result = mysqli_query($mysqli, "UPDATE product SET nama_product='$name', satuan_product='$satuan', image='$file_name', stock_product='$stock', harga_product='$harga', isActive='$isActive' WHERE id='$id'");
+    $result = mysqli_query($conn, "UPDATE product SET nama_product='$name', satuan_product='$satuan', image='$file_name', stock_product='$stock', harga_product='$harga', isActive='$isActive' WHERE id='$id'");
 
     if ($result) {
         echo "<script>alert('Produk berhasil diperbarui.');</script>";
