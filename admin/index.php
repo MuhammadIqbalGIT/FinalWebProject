@@ -11,7 +11,7 @@
     session_start();
 
     if ($_SESSION['status'] != "login") {
-        header("location:../index.php?pesan=login_dulu");
+        header("location:../loginadmin.php?pesan=login_dulu");
     }
 
     require_once ("dbConnection.php");
