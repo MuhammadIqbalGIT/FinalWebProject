@@ -220,6 +220,12 @@
   </form>
 
 
+  <h1>Akun untuk Testing</h1>
+  <h2>Username : iqbal</h2>
+  <h2>password : iqbalitmss</h2>
+
+
+
   <footer style="text-align: center;">
     <p>&copy; 2024 Toko Online Muhammad Iqbal. All rights reserved.</p>
   </footer>
